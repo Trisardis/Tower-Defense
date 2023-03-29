@@ -446,6 +446,37 @@ Transform:
   m_Father: {fileID: 6936875885538241105}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2666133082102775158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5142924623160536550}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5142924623160536550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666133082102775158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1448949257493595006}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2667117088144085658
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +613,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1448949257493595006}
   - component: {fileID: 796434308423279068}
+  - component: {fileID: 576156230}
   m_Layer: 0
   m_Name: Cat
   m_TagString: Untagged
@@ -596,13 +628,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3036530596997207611}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.22007, y: 2.0304565, z: -22.268291}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9131089913487926767}
   - {fileID: 1958015858939774837}
+  - {fileID: 5142924623160536550}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -626,6 +659,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &576156230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3036530596997207611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073683134666a154f949c5df61593a8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 15
+  fireRate: 1
+  enemyTag: Enemy
+  partToRotate: {fileID: 1448949257493595006}
+  turnSpeed: 10
+  yarnBallPrefab: {fileID: 6555326693061377717, guid: d6f9b92f822cc964eae889d28560aac2, type: 3}
+  firePoint: {fileID: 0}
 --- !u!1 &3287384784047666995
 GameObject:
   m_ObjectHideFlags: 0

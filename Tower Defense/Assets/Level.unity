@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5389,35 +5389,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1619734698558301615, guid: 80c5f51f0c89d044db7c8233d962bad6, type: 3}
   m_PrefabInstance: {fileID: 571925362}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &576156229 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3036530596997207611, guid: 869f3236023a7dd42a7fcfda5c62ce55, type: 3}
-  m_PrefabInstance: {fileID: 1874025845}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &576156230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576156229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 073683134666a154f949c5df61593a8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 15
-  fireRate: 1
-  enemyTag: Enemy
-  partToRotate: {fileID: 576156232}
-  turnSpeed: 10
-  yarnBallPrefab: {fileID: 6555326693061377717, guid: d6f9b92f822cc964eae889d28560aac2, type: 3}
-  firePoint: {fileID: 0}
---- !u!4 &576156232 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1448949257493595006, guid: 869f3236023a7dd42a7fcfda5c62ce55, type: 3}
-  m_PrefabInstance: {fileID: 1874025845}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &585423774
 PrefabInstance:
@@ -12434,6 +12405,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 694499963981699683, guid: e2ad3279c7be32e4d999ba287675c287, type: 3}
   m_PrefabInstance: {fileID: 1613589874}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1632684804 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5142924623160536550, guid: 869f3236023a7dd42a7fcfda5c62ce55, type: 3}
+  m_PrefabInstance: {fileID: 1874025845}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1633163726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14380,6 +14356,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 576156230, guid: 869f3236023a7dd42a7fcfda5c62ce55, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 1632684804}
     - target: {fileID: 1448949257493595006, guid: 869f3236023a7dd42a7fcfda5c62ce55, type: 3}
       propertyPath: m_RootOrder
       value: 1

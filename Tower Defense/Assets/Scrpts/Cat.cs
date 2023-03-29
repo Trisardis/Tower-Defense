@@ -70,7 +70,13 @@ public class Cat : MonoBehaviour
 
     void Shoot()
     {
-        Instantiate (yarnBallPrefab, firePoint.position, firePoint.rotation);
+        GameObject projectileGO = (GameObject)Instantiate (yarnBallPrefab, firePoint.position, firePoint.rotation);
+        YarnBall yarnball = projectileGO.GetComponent<YarnBall>();
+
+        if (yarnball != null)
+        {
+            yarnball.Seek(target);
+        }
     }
 
     void OnDrawGizmosSelected ()
