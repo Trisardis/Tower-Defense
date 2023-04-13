@@ -14,17 +14,19 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject standardTowerPrefab;
-
-    void Start()
-    {
-        towerToBuild = standardTowerPrefab;
-    }
+    public GameObject fatCatPrefab;
+    public GameObject orangeCatPrefab;
+    public GameObject whiteCatPrefab;
 
     private GameObject towerToBuild;
 
     public GameObject GetTowerToBuild()
     {
         return towerToBuild;
+    }
+
+    public void SetTowerToBuild(GameObject tower)
+    {
+        towerToBuild = tower;
     }
 }
