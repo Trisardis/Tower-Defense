@@ -11,19 +11,19 @@ public class shop : MonoBehaviour
 
     public void PurchaseFatCat()
     {
-        Debug.Log("Fat Cat Selected");
+        // Debug.Log("Fat Cat Selected");
         buildManager.SetTowerToBuild(buildManager.fatCatPrefab);
     }
 
     public void PurchaseOrangeCat()
     {
-        Debug.Log("Orange Cat Selected");
+        // Debug.Log("Orange Cat Selected");
         buildManager.SetTowerToBuild(buildManager.orangeCatPrefab);
     }
 
-        public void PurchaseWhiteCat()
+    public void PurchaseWhiteCat()
     {
-        Debug.Log("White Cat Selected");
+        // Debug.Log("White Cat Selected");
         buildManager.SetTowerToBuild(buildManager.whiteCatPrefab);  
     }
 }

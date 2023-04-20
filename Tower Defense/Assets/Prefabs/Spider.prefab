@@ -426,8 +426,6 @@ GameObject:
   - component: {fileID: 7834775014204949175}
   - component: {fileID: 7834775014197701899}
   - component: {fileID: 7834775014204949174}
-  - component: {fileID: 1102753014599288263}
-  - component: {fileID: 1719580325505942062}
   m_Layer: 0
   m_Name: Spider
   m_TagString: Enemy
@@ -484,35 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae6a33d490f0be442a90fec4982c6385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
---- !u!114 &1102753014599288263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7834775014205120151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 394b5395d1bb1684181d3c73bda12b61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!111 &1719580325505942062
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7834775014205120151}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: ef837dbcd7c941e478b2aca06b357857, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: ef837dbcd7c941e478b2aca06b357857, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  speed: 10
 --- !u!1 &7834775014205120153
 GameObject:
   m_ObjectHideFlags: 0
