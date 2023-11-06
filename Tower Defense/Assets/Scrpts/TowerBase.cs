@@ -4,7 +4,9 @@ using UnityEngine.EventSystems;
 public class TowerBase : MonoBehaviour
 {
     private Renderer rend;
-    private GameObject tower;
+
+    [Header("Optional")]
+    public GameObject tower;
     public Vector3 positionOffset;
 
     public Color hoverColor;
@@ -20,6 +22,11 @@ public class TowerBase : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
+    public Vector3 GetBuildPosition()
+    {
+        return transform.position + positionOffset;
+    }
+
     void OnMouseDown()
     {
         // Prevents tower placement is mouse is over the ui
@@ -27,7 +34,7 @@ public class TowerBase : MonoBehaviour
           return;
 
         // Return if there is no tower selected
-        if (buildManager.GetTowerToBuild() == null)
+        if (!buildManager.CanBuild)
             return;
 
         if (tower != null)
@@ -36,9 +43,7 @@ public class TowerBase : MonoBehaviour
             return;
         }
 
-        // Build a tower
-        GameObject towerToBuild = buildManager.GetTowerToBuild();
-        tower = (GameObject)Instantiate(towerToBuild, transform.position + positionOffset, transform.rotation);
+        buildManager.BuildTowerOn(this);
     }
 
     void OnMouseEnter()
@@ -48,7 +53,7 @@ public class TowerBase : MonoBehaviour
           return;
         
         // Return if there is no tower selected
-        if (buildManager.GetTowerToBuild() == null)
+        if (!buildManager.CanBuild)
             return;
 
         if (tower == null)

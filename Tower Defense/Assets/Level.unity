@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2439,7 +2439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847242, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseOrangeCat
+      value: SelectOrangeCat
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847242, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2459,7 +2459,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847244, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847244, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2639,7 +2639,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847242, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseWhiteCat
+      value: SelectWhiteCat
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847242, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2659,7 +2659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847244, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847244, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10519,6 +10519,7 @@ GameObject:
   - component: {fileID: 1016308869}
   - component: {fileID: 1016308868}
   - component: {fileID: 1016308870}
+  - component: {fileID: 1016308871}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -10572,6 +10573,20 @@ MonoBehaviour:
   fatCatPrefab: {fileID: 9160897413134481362, guid: 4038cf72f12009842bf19b59219c91df, type: 3}
   orangeCatPrefab: {fileID: 3003192409161965787, guid: ff3c67f8f5fd80c4d8d9683ab65c5b6b, type: 3}
   whiteCatPrefab: {fileID: 3214994722680811031, guid: 8fe7b0336beca3342be87289f92d3785, type: 3}
+--- !u!114 &1016308871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016308867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de040c34c6c59c442babaf9d58c7b0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startCurrancy: 400
+  startLives: 20
 --- !u!1001 &1019677478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13145,9 +13160,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 224998419}
   - {fileID: 1223047272}
   - {fileID: 1200948301}
+  - {fileID: 224998419}
   m_Father: {fileID: 390970194}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -13232,6 +13247,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f49d057feb80db54c8d3657e91a7329c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  standardCat:
+    prefab: {fileID: 3003192409161965787, guid: ff3c67f8f5fd80c4d8d9683ab65c5b6b, type: 3}
+    cost: 100
+  fastCat:
+    prefab: {fileID: 3214994722680811031, guid: 8fe7b0336beca3342be87289f92d3785, type: 3}
+    cost: 150
+  fatCat:
+    prefab: {fileID: 9160897413134481362, guid: 4038cf72f12009842bf19b59219c91df, type: 3}
+    cost: 200
 --- !u!1001 &1285333041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22612,7 +22636,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847242, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseFatCat
+      value: SelectFatCat
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847242, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -22632,7 +22656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847244, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5047506546567847244, guid: 0ce68916f4f8b5d459d7dfdb4e18fd3e, type: 3}
       propertyPath: m_AnchorMax.x

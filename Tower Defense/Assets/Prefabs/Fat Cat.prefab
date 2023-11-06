@@ -1954,7 +1954,7 @@ MonoBehaviour:
   enemyTag: Enemy
   partToRotate: {fileID: 4691154837378409111}
   turnSpeed: 10
-  yarnBallPrefab: {fileID: 6555326693061377717, guid: d6f9b92f822cc964eae889d28560aac2, type: 3}
+  yarnBallPrefab: {fileID: 6555326693061377717, guid: 55ca17ada2135ba4887d039bd795a6b1, type: 3}
   firePoint: {fileID: 1323690393147313167}
 --- !u!82 &-4603573640279110048
 AudioSource:

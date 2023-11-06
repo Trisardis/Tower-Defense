@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class shop : MonoBehaviour
 {
+    public TowerBlueprint standardCat;
+    public TowerBlueprint fastCat;
+    public TowerBlueprint fatCat;
+
     BuildManager buildManager;
 
     void Start()
@@ -9,21 +13,21 @@ public class shop : MonoBehaviour
         buildManager = BuildManager.instance;
     }
 
-    public void PurchaseFatCat()
-    {
-        // Debug.Log("Fat Cat Selected");
-        buildManager.SetTowerToBuild(buildManager.fatCatPrefab);
-    }
-
-    public void PurchaseOrangeCat()
+    public void SelectOrangeCat()
     {
         // Debug.Log("Orange Cat Selected");
-        buildManager.SetTowerToBuild(buildManager.orangeCatPrefab);
+        buildManager.SelectTowerToBuild(standardCat);
     }
 
-    public void PurchaseWhiteCat()
+    public void SelectWhiteCat()
     {
         // Debug.Log("White Cat Selected");
-        buildManager.SetTowerToBuild(buildManager.whiteCatPrefab);  
+        buildManager.SelectTowerToBuild(fastCat);  
+    }
+
+    public void SelectFatCat()
+    {
+        // Debug.Log("Fat Cat Selected");
+        buildManager.SelectTowerToBuild(fatCat);
     }
 }

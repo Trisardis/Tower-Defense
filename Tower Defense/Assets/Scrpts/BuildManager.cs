@@ -18,14 +18,27 @@ public class BuildManager : MonoBehaviour
     public GameObject orangeCatPrefab;
     public GameObject whiteCatPrefab;
 
-    private GameObject towerToBuild;
+    private TowerBlueprint towerToBuild;
 
-    public GameObject GetTowerToBuild()
+    public bool CanBuild { get { return towerToBuild != null; }}
+
+    public void BuildTowerOn(TowerBase rock)
     {
-        return towerToBuild;
+        if (PlayerStats.Currancy < towerToBuild.cost)
+        {
+            Debug.Log("Not enough money to build that");
+            return;
+        }
+
+        PlayerStats.Currancy -= towerToBuild.cost;
+
+        GameObject tower = (GameObject)Instantiate(towerToBuild.prefab, rock.GetBuildPosition(), Quaternion.identity);
+        rock.tower = tower;
+
+        Debug.Log("Turret build. money left " + PlayerStats.Currancy);
     }
 
-    public void SetTowerToBuild(GameObject tower)
+    public void SelectTowerToBuild(TowerBlueprint tower)
     {
         towerToBuild = tower;
     }
