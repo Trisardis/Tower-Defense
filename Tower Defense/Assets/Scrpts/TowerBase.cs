@@ -8,8 +8,8 @@ public class TowerBase : MonoBehaviour
     [Header("Optional")]
     public GameObject tower;
     public Vector3 positionOffset;
-
     public Color hoverColor;
+    public Color notEnoughMoneyColor;
     private Color startColor;
 
     BuildManager buildManager;
@@ -56,8 +56,12 @@ public class TowerBase : MonoBehaviour
         if (!buildManager.CanBuild)
             return;
 
-        if (tower == null)
-            rend.material.color = hoverColor;
+        // Choose rock color based on whether the play has enough currency or not
+        if (buildManager.HasMoney)
+			rend.material.color = hoverColor;
+		else
+			rend.material.color = notEnoughMoneyColor;
+
     }
 
     void OnMouseExit()

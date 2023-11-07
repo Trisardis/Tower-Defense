@@ -21,6 +21,7 @@ public class BuildManager : MonoBehaviour
     private TowerBlueprint towerToBuild;
 
     public bool CanBuild { get { return towerToBuild != null; }}
+    public bool HasMoney { get { return PlayerStats.Currancy >= towerToBuild.cost; } }
 
     public void BuildTowerOn(TowerBase rock)
     {
