@@ -55,6 +55,7 @@ public GameObject impactEffect;
         Collider[] colliders = Physics.OverlapSphere(transform.position, explosionRadius);
         foreach (Collider collider in colliders)
         {
+            Debug.Log(collider.gameObject);
             if (collider.tag == "Enemy")
             {
                 Damage(collider.transform);
@@ -70,10 +71,10 @@ public GameObject impactEffect;
 		// 	enemy.TakeDamage(damage);
 		// }
         Destroy(enemy.gameObject);
-        foreach(Transform child in enemy.transform)
-        {
-            Destroy(child.gameObject);
-        }
+        // foreach(Transform child in enemy.transform)
+        // {
+        //     Destroy(child.gameObject);
+        // }
 	}
 }
 
