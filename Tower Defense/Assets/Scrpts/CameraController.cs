@@ -19,7 +19,12 @@ public class CameraController : MonoBehaviour
 
     private float yaw = 0.0f;
     private float pitch = 90f;
+    // private Camera ZoomCamera;
 
+    // private void Start()
+    // {
+    //     ZoomCamera = Camera.main;
+    // }
 
     // Update is called once per frame
     void Update()
@@ -31,41 +36,21 @@ public class CameraController : MonoBehaviour
             return;
 
         // Camera moves in the a given direction based on key or mouse input
-        // if (Input.GetKey("w") || Input.mousePosition.y >= Screen.height - panBorderThickness)
-        // {
-        //     transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
-        // }
-        // if (Input.GetKey("s") || Input.mousePosition.y <= panBorderThickness)
-        // {
-        //     transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
-        // }
-        // if (Input.GetKey("d") || Input.mousePosition.x >= Screen.width - panBorderThickness)
-        // {
-        //     transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
-        // }
-        // if (Input.GetKey("a") || Input.mousePosition.x <= panBorderThickness)
-        // {
-        //     transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
-        // }
-          if (Input.GetKey("w"))
-        {
+        if (Input.GetKey("w"))
             transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);
-        }
         if (Input.GetKey("s"))
-        {
             transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);
-        }
         if (Input.GetKey("d"))
-        {
             transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);
-        }
         if (Input.GetKey("a"))
-        {
             transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);
-        }
 
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
+        // if (ZoomCamera.orthographic)
+        //     ZoomCamera.orthographic -= Input.GetAxis("Mouse ScrollWheel)") * scrollSpeed;
+        // else
+        //     ZoomCamera.fieldOfView -= Input.GetAxis("Mouse ScrollWheel)") * scrollSpeed;
 
         Vector3 pos = transform.position;
 
@@ -73,10 +58,7 @@ public class CameraController : MonoBehaviour
         pos.y -= scroll * 1000 * scrollSpeed * Time.deltaTime;
         pos.z -= scroll * 1000 * scrollSpeed * Time.deltaTime;
 
-        Debug.Log("Before " + pos.x + " " + minimumX + " " + maximumX);
         pos.x = Mathf.Clamp(pos.x, minimumX, maximumX);
-        Debug.Log("After " + pos.x + " " + minimumX + " " + maximumX);
-
         pos.y = Mathf.Clamp(pos.y, minimumY, maximumY);
         pos.z = Mathf.Clamp(pos.z, minimumZ, maximumZ);
         transform.position = pos;

@@ -33,15 +33,18 @@ public class TowerBase : MonoBehaviour
         if (EventSystem.current.IsPointerOverGameObject())
           return;
 
+        if (tower != null)
+        {
+            buildManager.SelectTower(this);
+            return;
+        }
+
         // Return if there is no tower selected
         if (!buildManager.CanBuild)
             return;
 
         if (tower != null)
-        {
-            Debug.Log("Can't build there! = TODO: Display on screen.");
             return;
-        }
 
         buildManager.BuildTowerOn(this);
     }

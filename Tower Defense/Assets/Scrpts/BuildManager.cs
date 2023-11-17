@@ -19,9 +19,17 @@ public class BuildManager : MonoBehaviour
     public GameObject whiteCatPrefab;
 
     private TowerBlueprint towerToBuild;
+    private TowerBase selectedTower;
+
+	public TowerUI towerUI;
 
     public bool CanBuild { get { return towerToBuild != null; }}
     public bool HasMoney { get { return PlayerStats.Currancy >= towerToBuild.cost; } }
+
+    void Start() 
+    {
+        towerUI.Hide();
+    }
 
     public void BuildTowerOn(TowerBase rock)
     {
@@ -39,8 +47,30 @@ public class BuildManager : MonoBehaviour
         Debug.Log("Turret build. money left " + PlayerStats.Currancy);
     }
 
+	public void SelectTower (TowerBase tower)
+	{
+		if (selectedTower == tower)
+		{
+			DeselectTower();
+			return;
+		}
+        
+		selectedTower = tower;
+		towerToBuild = null;
+
+		towerUI.SetTarget(tower);
+	}
+
+	public void DeselectTower()
+	{
+		selectedTower = null;
+		towerUI.Hide();
+	}
+
     public void SelectTowerToBuild(TowerBlueprint tower)
     {
         towerToBuild = tower;
+        selectedTower = null;
+        DeselectTower();
     }
 }
