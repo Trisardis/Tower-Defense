@@ -31,22 +31,6 @@ public class BuildManager : MonoBehaviour
         towerUI.Hide();
     }
 
-    public void BuildTowerOn(TowerBase rock)
-    {
-        if (PlayerStats.Currancy < towerToBuild.cost)
-        {
-            Debug.Log("Not enough money to build that");
-            return;
-        }
-
-        PlayerStats.Currancy -= towerToBuild.cost;
-
-        GameObject tower = (GameObject)Instantiate(towerToBuild.prefab, rock.GetBuildPosition(), Quaternion.identity);
-        rock.tower = tower;
-
-        Debug.Log("Turret build. money left " + PlayerStats.Currancy);
-    }
-
 	public void SelectTower (TowerBase tower)
 	{
 		if (selectedTower == tower)
@@ -72,5 +56,10 @@ public class BuildManager : MonoBehaviour
         towerToBuild = tower;
         selectedTower = null;
         DeselectTower();
+    }
+
+    public TowerBlueprint GetTowerToBuild ()
+    {
+        return towerToBuild;
     }
 }
