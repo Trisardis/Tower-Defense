@@ -56,10 +56,7 @@ public class TowerBase : MonoBehaviour
     void BuildTower (TowerBlueprint blueprint)
     {
         if (PlayerStats.Currancy < blueprint.cost)
-        {
-            Debug.Log("Not enough money to build that");
             return;
-        }
 
         PlayerStats.Currancy -= blueprint.cost;
         towerBlueprint = blueprint;
@@ -67,16 +64,13 @@ public class TowerBase : MonoBehaviour
         GameObject _tower = (GameObject)Instantiate(blueprint.prefab, GetBuildPosition(), Quaternion.identity);
         tower = _tower;
 
-        Debug.Log("Turret Build");
+        isUpgraded = false;
     }
 
     public void UpgradeTower ()
     {
         if (PlayerStats.Currancy < towerBlueprint.upgradeCost)
-        {
-            Debug.Log("Not enough money to upgrade that");
             return;
-        }
 
         PlayerStats.Currancy -= towerBlueprint.upgradeCost;
 
@@ -86,9 +80,18 @@ public class TowerBase : MonoBehaviour
         tower = _tower;
 
         isUpgraded = true;
-
-        Debug.Log("Turret Upgraded");
     }
+
+    public void SellTower ()
+	{
+		if (isUpgraded)
+            PlayerStats.Currancy += (towerBlueprint.GetSellAmount() + (towerBlueprint.upgradeCost/2));
+        else
+            PlayerStats.Currancy += towerBlueprint.GetSellAmount();
+
+		Destroy(tower);
+		towerBlueprint = null;
+	}
 
     void OnMouseEnter()
     {

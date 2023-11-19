@@ -2,13 +2,22 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed = 10f;
+    
     
     private Transform target;
     private int wavepointIndex = 0;
 
+    public float startSpeed = 10f;
+    public float startHealth = 100;
+    public float speed = 10f;
+    public int worth = 10;
+
+	private float health;
+
     void Start() {
         target = Waypoints.points[0];
+        speed = startSpeed;
+		health = startHealth;
     }
 
     void Update() {

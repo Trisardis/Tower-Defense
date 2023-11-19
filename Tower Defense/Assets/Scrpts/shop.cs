@@ -15,19 +15,17 @@ public class shop : MonoBehaviour
 
     public void SelectOrangeCat()
     {
-        // Debug.Log("Orange Cat Selected");
+
         buildManager.SelectTowerToBuild(standardCat);
     }
 
     public void SelectWhiteCat()
     {
-        // Debug.Log("White Cat Selected");
         buildManager.SelectTowerToBuild(fastCat);  
     }
 
     public void SelectFatCat()
     {
-        // Debug.Log("Fat Cat Selected");
         buildManager.SelectTowerToBuild(fatCat);
     }
 }

@@ -7,9 +7,8 @@ public class TowerUI : MonoBehaviour
 {
 	public GameObject ui;
 	public Text upgradeCost;
+	public Text sellAmount;
 	public Button upgradeButton;
-
-	// public Text sellAmount;
 
 	private TowerBase target;
 
@@ -22,15 +21,15 @@ public class TowerUI : MonoBehaviour
 
 		if (!target.isUpgraded)
 		{
+			sellAmount.text = "$" + target.towerBlueprint.GetSellAmount();
 			upgradeCost.text = "$" + target.towerBlueprint.upgradeCost;
 			upgradeButton.interactable = true;
 		} else
 		{
+			sellAmount.text = "$" + (target.towerBlueprint.GetSellAmount() + (target.towerBlueprint.upgradeCost/2));
 			upgradeCost.text = "DONE";
 			upgradeButton.interactable = false;
     	}
-
-	// 	sellAmount.text = "$" + target.towerBlueprint.GetSellAmount();
 
 		ui.SetActive(true);
     }
@@ -46,9 +45,9 @@ public class TowerUI : MonoBehaviour
         BuildManager.instance.DeselectTower();
     }
 
-    // public void Sell ()
-    // {
-    //     target.SellTower();
-    //     BuildManager.instance.DeselectNode();
-    // }
+    public void Sell ()
+    {
+        target.SellTower();
+        BuildManager.instance.DeselectTower();
+    }
 }
