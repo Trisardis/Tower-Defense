@@ -46,8 +46,6 @@ public GameObject impactEffect;
 		{
 			Damage(target);
 		}
-
-        Destroy(target.gameObject);
         Destroy(gameObject);
     }
 
@@ -66,16 +64,11 @@ public GameObject impactEffect;
 
     void Damage (Transform enemy)
 	{
-		// Enemy enemy = enemy.GetComponent<Enemy>();
-		// if (enemy != null)
-		// {
-		// 	enemy.TakeDamage(damage);
-		// }
-        Destroy(enemy.gameObject);
-        // foreach(Transform child in enemy.transform)
-        // {
-        //     Destroy(child.gameObject);
-        // }
+		Enemy _enemy = enemy.GetComponent<Enemy>();
+		if (_enemy != null)
+		{
+			_enemy.TakeDamage(damage);
+		}
 	}
 }
 

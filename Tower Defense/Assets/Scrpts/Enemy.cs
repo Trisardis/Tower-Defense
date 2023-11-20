@@ -1,18 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
-    
-    
     private Transform target;
     private int wavepointIndex = 0;
 
     public float startSpeed = 10f;
     public float startHealth = 100;
+    public float health;
     public float speed = 10f;
     public int worth = 10;
 
-	private float health;
+    public Image healthBar;
+
+
+    private bool isDead = false;
 
     void Start() {
         target = Waypoints.points[0];
@@ -33,6 +36,7 @@ public class Enemy : MonoBehaviour
     void GetNextWaypoint() {
         if (wavepointIndex >= Waypoints.points.Length - 1) {
             PlayerStats.Lives -= 1;
+            WaveSpawner.EnemiesAlive--;
             Destroy(gameObject);
             return;
         }
@@ -40,4 +44,23 @@ public class Enemy : MonoBehaviour
         wavepointIndex++;
         target = Waypoints.points[wavepointIndex];
     }
+
+    public void TakeDamage (float amount)
+	{
+		health -= amount;
+		healthBar.fillAmount = health / startHealth;
+		if (health <= 0 && !isDead)
+		{
+            Debug.Log("Dead");
+			Die();
+		}
+	}
+
+    void Die ()
+	{
+		isDead = true;
+		PlayerStats.Currancy += worth;
+		WaveSpawner.EnemiesAlive--;
+		Destroy(gameObject);
+	}
 }
