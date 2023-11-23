@@ -6,7 +6,9 @@ public class WaveSpawner : MonoBehaviour
 {
     public static int EnemiesAlive = 0;
 
-    public Transform enemyPrefab;
+    // public Transform enemyPrefab;
+    public Wave[] waves;
+
     public Transform spawnPoint;
 
     public float waveTimer = 5f;
@@ -37,6 +39,7 @@ public class WaveSpawner : MonoBehaviour
         {
             StartCoroutine(SpawnWave());
             countdown = waveTimer;
+            return;
         }
 
         countdown -= Time.deltaTime;
@@ -46,25 +49,26 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave() 
     {
+        Wave wave = waves[waveNumber];
+        for (int i = 0; i < wave.count; i++) 
+        {
+            Debug.Log(i);
+            SpawnEnemy(wave.enemy);
+            yield return new WaitForSeconds(1f / wave.rate);
+        }
         curretnWave = waveNumber;
         waveNumber ++;
-        for (int i = 0; i < waveNumber; i++) 
-        {
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
-        }
     }
 
     public void SpawnNextWave ()
     {
-        Debug.Log("Spawn Next Wave");
         StartCoroutine(SpawnWave());
         countdown = waveTimer;
     }
 
-    void SpawnEnemy() 
+    void SpawnEnemy(GameObject enemy) 
     {
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
         EnemiesAlive++;
     }
 }

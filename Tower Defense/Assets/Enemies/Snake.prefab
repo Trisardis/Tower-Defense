@@ -838,7 +838,7 @@ MonoBehaviour:
   startHealth: 70
   health: 70
   speed: 15
-  worth: 10
+  worth: 5
   healthBar: {fileID: 7932590150524112600}
 --- !u!65 &8365195343525787380
 BoxCollider:
