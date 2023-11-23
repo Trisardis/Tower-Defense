@@ -52,7 +52,6 @@ public class WaveSpawner : MonoBehaviour
         Wave wave = waves[waveNumber];
         for (int i = 0; i < wave.count; i++) 
         {
-            Debug.Log(i);
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }

@@ -19,7 +19,14 @@ public class GameManager : MonoBehaviour
 
     void Update () 
     {
-        Debug.Log(WaveSpawner.curretnWave);
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (Time.timeScale == 1)
+                pauseGame();
+            else
+                resumeGame();
+        }
+
         if (GameIsOver)
             return;
 
@@ -35,13 +42,25 @@ public class GameManager : MonoBehaviour
 
     void LevelWon ()
     {
+        pauseGame();
         LevelCompleated = true;
         LevelCompleatedUI.SetActive(true);
     }
 
     void EndGame ()
     {
+        pauseGame();
         GameIsOver = true;
         gameOverUI.SetActive(true);
+    }
+
+    void pauseGame ()
+    {
+        Time.timeScale = 0;
+    }
+
+    void resumeGame ()
+    {
+        Time.timeScale = 1;
     }
 }
