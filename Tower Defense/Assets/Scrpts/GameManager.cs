@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 	public GameObject gameOverUI;
 	public GameObject LevelCompleatedUI;
     public GameObject pauseMenuUI;
+    public GameObject introductionScreenUI;
 
 	void Start ()
 	{
@@ -19,10 +20,17 @@ public class GameManager : MonoBehaviour
         LevelCompleatedUI.SetActive(false);
         gameOverUI.SetActive(false);
         pauseMenuUI.SetActive(false);
+
+        introductionScreenUI.SetActive(true);
+        Time.timeScale = 0;
 	}
 
     void Update () 
     {
+        // Dissable introduction screen when the game starts
+        if (Time.timeScale == 1)
+            introductionScreenUI.SetActive(false);
+
         // Pause the game
         if (Input.GetKeyDown(KeyCode.Escape))
         {
