@@ -55,6 +55,11 @@ public class TowerBase : MonoBehaviour
 
     void BuildTower (TowerBlueprint blueprint)
     {
+        // Prevents player from building a tower if the game is paused
+        if (GameManager.gamePaused == true)
+            return;
+
+        // Prevents player from building a tower if they do not have enough currancy
         if (PlayerStats.Currancy < blueprint.cost)
             return;
 
@@ -95,6 +100,10 @@ public class TowerBase : MonoBehaviour
 
     void OnMouseEnter()
     {
+        // Pevents hover effect if the game is paused
+        if (GameManager.gamePaused == true)
+            return;
+
         // Prevents tower placement is mouse is over the ui
         if (EventSystem.current.IsPointerOverGameObject())
           return;
@@ -108,7 +117,6 @@ public class TowerBase : MonoBehaviour
 			rend.material.color = hoverColor;
 		else
 			rend.material.color = notEnoughMoneyColor;
-
     }
 
     void OnMouseExit()

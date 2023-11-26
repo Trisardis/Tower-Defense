@@ -23,6 +23,7 @@ public class WaveSpawner : MonoBehaviour
 
     void Start ()
     {
+        EnemiesAlive = 0;
         curretnWave = 1;
     }
 

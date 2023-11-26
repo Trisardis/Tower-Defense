@@ -15,17 +15,26 @@ public class shop : MonoBehaviour
 
     public void SelectOrangeCat()
     {
-
+        
+        if (GameManager.gamePaused == true)
+            return;
+            
         buildManager.SelectTowerToBuild(standardCat);
     }
 
     public void SelectWhiteCat()
     {
+        if (GameManager.gamePaused == true)
+            return;
+            
         buildManager.SelectTowerToBuild(fastCat);  
     }
 
     public void SelectFatCat()
     {
+        if (GameManager.gamePaused == true)
+            return;
+            
         buildManager.SelectTowerToBuild(fatCat);
     }
 }
