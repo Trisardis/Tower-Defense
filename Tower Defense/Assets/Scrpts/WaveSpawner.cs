@@ -8,21 +8,22 @@ public class WaveSpawner : MonoBehaviour
 
     // public Transform enemyPrefab;
     public Wave[] waves;
-
     public Transform spawnPoint;
-
-    public float waveTimer = 5f;
-    private float countdown = 2f;
+    public GameManager gameManager;
 
     public Text waveCountdownHeadding;
     public Text waveCountdownText;
     public Button startNextWave;
 
+    public float waveTimer = 5f;
+    private float countdown = 2f;
     public static int curretnWave;
-    public int waveNumber = 0;
+    public int waveNumber;
+
 
     void Start ()
     {
+        waveNumber = 0;
         EnemiesAlive = 0;
         curretnWave = 1;
     }
@@ -34,6 +35,12 @@ public class WaveSpawner : MonoBehaviour
             waveCountdownHeadding.text = "Enemies Remaining";
             waveCountdownText.text = EnemiesAlive.ToString();
 			return;
+		}
+
+        if (waveNumber == waves.Length)
+		{
+			gameManager.LevelWon();
+			this.enabled = false;
 		}
 
         if(countdown <= 0f) 
@@ -50,13 +57,13 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave() 
     {
+        curretnWave = waveNumber + 1;
         Wave wave = waves[waveNumber];
         for (int i = 0; i < wave.count; i++) 
         {
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }
-        curretnWave = waveNumber;
         waveNumber ++;
     }
 

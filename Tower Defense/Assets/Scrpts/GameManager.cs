@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     void Update () 
     {
-        // Dissable introduction screen when the game starts
+        // Dissable introduction screen when the game
         if (Time.timeScale == 1)
             introductionScreenUI.SetActive(false);
 
@@ -48,13 +48,9 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
-        if (WaveSpawner.curretnWave == 9 && WaveSpawner.EnemiesAlive == 0)
-        {
-            LevelWon();
-        }
     }
 
-    void LevelWon ()
+    public void LevelWon ()
     {
         pauseGame();
         LevelCompleated = true;
