@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +15,8 @@ public class Enemy : MonoBehaviour
     public int worth = 10;
 
     public Image healthBar;
+    public AudioSource audioSource;
+    public AudioClip enemyHhit;
 
 
     private bool isDead = false;
@@ -21,6 +25,7 @@ public class Enemy : MonoBehaviour
         target = Waypoints.points[0];
         speed = startSpeed;
 		health = startHealth;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -47,7 +52,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage (float amount)
 	{
-		health -= amount;
+        audioSource.PlayOneShot(enemyHhit, 1);
+        health -= amount;
 		healthBar.fillAmount = health / startHealth;
 		if (health <= 0 && !isDead)
 		{
@@ -58,6 +64,7 @@ public class Enemy : MonoBehaviour
 
     void Die ()
 	{
+        audioSource.PlayOneShot(enemyHhit, 1);
 		isDead = true;
 		PlayerStats.Currancy += worth;
 		WaveSpawner.EnemiesAlive--;
