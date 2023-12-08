@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
+    private Animator animator;
     private Transform target;
     private int wavepointIndex = 0;
 
@@ -16,10 +17,9 @@ public class Enemy : MonoBehaviour
 
     public Image healthBar;
     public AudioSource audioSource;
-    public AudioClip enemyHhit;
+    public AudioClip enemyHit;
 
-
-    private bool isDead = false;
+    public bool isDead = false;
 
     void Start() {
         target = Waypoints.points[0];
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage (float amount)
 	{
-        audioSource.PlayOneShot(enemyHhit, 1);
+        audioSource.PlayOneShot(enemyHit, 1);
         health -= amount;
 		healthBar.fillAmount = health / startHealth;
 		if (health <= 0 && !isDead)
@@ -64,8 +64,11 @@ public class Enemy : MonoBehaviour
 
     void Die ()
 	{
-        audioSource.PlayOneShot(enemyHhit, 1);
-		isDead = true;
+        isDead = true;
+        speed = 0;
+        // GetComponent<Collider>().isTrigger = true;
+        // GetComponent<Collider>().enabled = false;
+        audioSource.PlayOneShot(enemyHit, 1);
 		PlayerStats.Currancy += worth;
 		WaveSpawner.EnemiesAlive--;
 		Destroy(gameObject);

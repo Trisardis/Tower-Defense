@@ -19,6 +19,11 @@ public class UIButtons : MonoBehaviour
             Time.timeScale = 1;
     }
 
+    public void StartNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
     public void QuitGame() 
     {
         Application.Quit();

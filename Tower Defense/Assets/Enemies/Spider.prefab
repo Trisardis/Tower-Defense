@@ -746,7 +746,7 @@ MonoBehaviour:
   worth: 10
   healthBar: {fileID: 2804859099638366664}
   audioSource: {fileID: 1385758322574619448}
-  enemyHhit: {fileID: 8300000, guid: dabbc3d60b9254fc483ca68d4dcedc0f, type: 3}
+  enemyHit: {fileID: 8300000, guid: acd572d51fe4d59439f484ec9fd5a50a, type: 3}
 --- !u!65 &5137745245526488291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -778,7 +778,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: dabbc3d60b9254fc483ca68d4dcedc0f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: acd572d51fe4d59439f484ec9fd5a50a, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
