@@ -19,7 +19,8 @@ public class WaveSpawner : MonoBehaviour
     private float countdown = 2f;
     public static int curretnWave;
     public int waveNumber;
-
+    public int bonus = 2;
+    private int totalBonus;
 
     void Start ()
     {
@@ -69,6 +70,14 @@ public class WaveSpawner : MonoBehaviour
 
     public void SpawnNextWave ()
     {
+        // Rewards the player with extra money if they start the next wave early
+        if (startNextWave)
+        {
+            totalBonus += bonus * EnemiesAlive;
+            if (totalBonus > 20)
+                totalBonus = 20;
+            PlayerStats.Currancy += totalBonus;
+        }
         StartCoroutine(SpawnWave());
         countdown = waveTimer;
     }

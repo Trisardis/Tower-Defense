@@ -66,11 +66,9 @@ public class Enemy : MonoBehaviour
 	{
         isDead = true;
         speed = 0;
-        // GetComponent<Collider>().isTrigger = true;
-        // GetComponent<Collider>().enabled = false;
         audioSource.PlayOneShot(enemyHit, 1);
 		PlayerStats.Currancy += worth;
 		WaveSpawner.EnemiesAlive--;
-		Destroy(gameObject);
+        Destroy(gameObject);
 	}
 }
