@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using System;
+using Random=UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void LevelWon ()
     {
+        giveRandomTower();
         pauseGame();
         LevelCompleated = true;
         LevelCompleatedUI.SetActive(true);
@@ -76,5 +79,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         gamePaused = false;
         pauseMenuUI.SetActive(false);
+    }
+
+    void giveRandomTower()
+    {
+        float towerNumber = UnityEngine.Random.Range(1, 4);
+        if (towerNumber == 1)
+            TowerManager.orangeCatAmount += 1;
+        else if (towerNumber == 2)
+           TowerManager.whiteCatAmount += 1;
+        else
+            TowerManager.fatCatAmount += 1;
     }
 }

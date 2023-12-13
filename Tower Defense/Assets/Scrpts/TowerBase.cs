@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TowerBase : MonoBehaviour
 {
@@ -15,6 +16,10 @@ public class TowerBase : MonoBehaviour
     public Color hoverColor;
     public Color notEnoughMoneyColor;
     private Color startColor;
+
+    public Text orangeCatAmountText;
+    public Text whiteCatAmountText;
+    public Text fatCatAmountText;
 
     BuildManager buildManager;
 
@@ -51,6 +56,7 @@ public class TowerBase : MonoBehaviour
             return;
 
         BuildTower(buildManager.GetTowerToBuild());
+
     }
 
     void BuildTower (TowerBlueprint blueprint)
@@ -62,6 +68,18 @@ public class TowerBase : MonoBehaviour
         // Prevents player from building a tower if they do not have enough currancy
         if (PlayerStats.Currancy < blueprint.cost)
             return;
+
+        if (blueprint.amountLeft <= 0)
+            return;
+            
+        // Update the number of towers remaining
+        blueprint.amountLeft -= 1;
+        if (blueprint.prefab.name == "Orange Cat")
+            orangeCatAmountText.text = "x " + blueprint.amountLeft.ToString();
+        if (blueprint.prefab.name == "White Cat")
+            whiteCatAmountText.text = "x " + blueprint.amountLeft.ToString();
+        if (blueprint.prefab.name == "Fat Cat")
+            fatCatAmountText.text = "x " + blueprint.amountLeft.ToString();
 
         PlayerStats.Currancy -= blueprint.cost;
         towerBlueprint = blueprint;
@@ -93,6 +111,15 @@ public class TowerBase : MonoBehaviour
             PlayerStats.Currancy += (towerBlueprint.GetSellAmount() + (towerBlueprint.upgradeCost/2));
         else
             PlayerStats.Currancy += towerBlueprint.GetSellAmount();
+
+        // Update the number of towers remaining
+        towerBlueprint.amountLeft += 1;
+        if (towerBlueprint.prefab.name == "Orange Cat")
+            orangeCatAmountText.text = "x " + towerBlueprint.amountLeft.ToString();
+        if (towerBlueprint.prefab.name == "White Cat")
+            whiteCatAmountText.text = "x " + towerBlueprint.amountLeft.ToString();
+        if (towerBlueprint.prefab.name == "Fat Cat")
+            fatCatAmountText.text = "x " + towerBlueprint.amountLeft.ToString();
 
 		Destroy(tower);
 		towerBlueprint = null;

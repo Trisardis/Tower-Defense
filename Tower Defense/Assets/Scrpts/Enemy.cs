@@ -57,7 +57,6 @@ public class Enemy : MonoBehaviour
 		healthBar.fillAmount = health / startHealth;
 		if (health <= 0 && !isDead)
 		{
-            Debug.Log("Dead");
 			Die();
 		}
 	}

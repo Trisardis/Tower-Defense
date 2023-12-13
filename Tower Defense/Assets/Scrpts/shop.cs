@@ -18,8 +18,11 @@ public class shop : MonoBehaviour
         
         if (GameManager.gamePaused == true)
             return;
-            
-        buildManager.SelectTowerToBuild(standardCat);
+
+        if (TowerManager.orangeCatAmount > 0)
+        {
+            buildManager.SelectTowerToBuild(standardCat);
+        }
     }
 
     public void SelectWhiteCat()
@@ -27,14 +30,20 @@ public class shop : MonoBehaviour
         if (GameManager.gamePaused == true)
             return;
             
-        buildManager.SelectTowerToBuild(fastCat);  
+        if (TowerManager.whiteCatAmount > 0)
+        {
+            buildManager.SelectTowerToBuild(fastCat);  
+        }
     }
 
     public void SelectFatCat()
     {
         if (GameManager.gamePaused == true)
             return;
-            
-        buildManager.SelectTowerToBuild(fatCat);
+        
+        if (TowerManager.fatCatAmount > 0)
+        {
+            buildManager.SelectTowerToBuild(fatCat);
+        }
     }
 }

@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694499963981334083}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.94596, y: 0.09490621, z: -2.0377836}
   m_LocalScale: {x: 4, y: 2, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &694499963980405315
 MeshFilter:
@@ -98,9 +98,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
+  towerBlueprint:
+    prefab: {fileID: 0}
+    cost: 0
+    upgradedPrefab: {fileID: 0}
+    upgradeCost: 0
+    amountLeft: 0
+  isUpgraded: 0
   positionOffset: {x: 0, y: 1, z: 0}
   hoverColor: {r: 0.2028701, g: 0.8679245, b: 0.15966538, a: 0.9372549}
   notEnoughMoneyColor: {r: 1, g: 0, b: 0, a: 0}
+  orangeCatAmountText: {fileID: 0}
+  whiteCatAmountText: {fileID: 0}
+  fatCatAmountText: {fileID: 0}
 --- !u!65 &-1552976279596724523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -109,8 +119,16 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694499963981334083}
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Size: {x: 2.32453, y: 0.88230485, z: 2.2607632}
   m_Center: {x: 0, y: 0.3462462, z: 0.000000059604645}
