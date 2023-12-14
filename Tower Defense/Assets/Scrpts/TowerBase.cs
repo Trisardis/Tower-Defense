@@ -61,6 +61,8 @@ public class TowerBase : MonoBehaviour
 
     void BuildTower (TowerBlueprint blueprint)
     {
+        Debug.Log(blueprint.amountLeft);
+
         // Prevents player from building a tower if the game is paused
         if (GameManager.gamePaused == true)
             return;

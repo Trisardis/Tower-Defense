@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject introductionScreenUI;
 
+    public TowerBase towerBase;
+
 	void Start ()
 	{
         LevelCompleated = false;
@@ -90,5 +92,7 @@ public class GameManager : MonoBehaviour
            TowerManager.whiteCatAmount += 1;
         else
             TowerManager.fatCatAmount += 1;
+
+        // TowerBase.towerBlueprint.amountLeft = 10;
     }
 }
